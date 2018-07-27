@@ -1,3 +1,9 @@
 class Trail < ApplicationRecord
+  has_many :hiking_trips
 
-end 
+  has_many :trips, through: :hiking_trips
+
+  def total_trips
+    trips.count
+  end
+end
